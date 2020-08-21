@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div id="app">
+  <Popup v-bind:pills="tags" />
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Popup from './components/Popup.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      tags: [{
+          id: 0,
+          name: "tree"
+        },
+        {
+          id: 1,
+          name: "banana"
+        },
+        {
+          id: 2,
+          name: "obama"
+        },
+        {
+          id: 3,
+          name: "karma"
+        },
+        {
+          id: 4,
+          name: "wall"
+        },
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    Popup
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
