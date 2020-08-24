@@ -1,6 +1,5 @@
 <template>
 <div class="container text-center">
-  <h2> {{ tags }}</h2>
   <div class="row">
     <div class="col">
       <h2>Your imgage</h2>
@@ -8,11 +7,13 @@
     </div>
     <div class="col">
       <h2> Tags</h2>
-      <span v-for="pill in pills" v-bind:key="pill.id" class="badge badge-pill badge-success">{{pill.name}}</span>
-      <form @submit.prevent="addToTags()">
+      <span v-for="(tag, id) in tags" :key="id" class="m-1 badge-pill badge-dark" @click="remove(tag)">{{tag.name}}
+      </span>
+      <form @submit.prevent="addToTags">
         <label for="newTag"></label>
         <small id="newTagHelp" class="form-text text-muted">Enter a new search tag:</small>
-        <input type="text" class="form-control" id="newTag" value="">
+        <input type="text" class="form-control" id="newTag" v-model="newTerm">
+        <h3> {{ newTerm }}</h3>
       </form>
     </div>
     <div class="col">
@@ -27,10 +28,50 @@
 <script>
 export default {
   name: 'Popup',
-  props: {
-    pills: String
+  data() {
+    return {
+      tags: [{
+          id: 0,
+          name: "1"
+        },
+        {
+          id: 1,
+          name: "2"
+        },
+        {
+          id: 2,
+          name: "3"
+        },
+        {
+          id: 3,
+          name: "4"
+        },
+        {
+          id: 4,
+          name: "5"
+        },
+      ],
+      // tags: [],
+      newTerm: ""
+    }
   },
-  // TODO: add method addToTags() on the form
+  // props: {
+  //   pills: Array,
+  // },
+  methods: {
+    addToTags() {
+      // console.log(x);
+      this.tags.push({
+        name: this.newTerm,
+        // id: null
+        newTerm: ""
+      });
+    },
+    remove(tag) {
+      const tagIndex = this.tags.indexOf(tag);
+      this.tags.splice(tagIndex, 1);
+    }
+  }
 }
 </script>
 
