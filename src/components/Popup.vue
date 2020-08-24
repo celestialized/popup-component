@@ -30,46 +30,33 @@ export default {
   name: 'Popup',
   data() {
     return {
-      tags: [{
-          id: 0,
-          name: "1"
-        },
-        {
-          id: 1,
-          name: "2"
-        },
-        {
-          id: 2,
-          name: "3"
-        },
-        {
-          id: 3,
-          name: "4"
-        },
-        {
-          id: 4,
-          name: "5"
-        },
-      ],
-      // tags: [],
+      tags: [],
       newTerm: ""
     }
   },
-  // props: {
-  //   pills: Array,
-  // },
   methods: {
     addToTags() {
-      // console.log(x);
       this.tags.push({
         name: this.newTerm,
-        // id: null
-        newTerm: ""
       });
+      this.newTerm = '';
     },
     remove(tag) {
       const tagIndex = this.tags.indexOf(tag);
       this.tags.splice(tagIndex, 1);
+    }
+  },
+  watch: {
+    tags() {
+      localStorage.tags = JSON.stringify(this.tags);
+      console.log("tags changed");
+      // TODO: Here's gonna be the function watching tags to live update our search.
+      // TODO: Clear localStorage on new search.
+    }
+  },
+  mounted() {
+    if (localStorage.tags) {
+      this.tags = JSON.parse(localStorage.tags);
     }
   }
 }
