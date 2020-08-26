@@ -7,8 +7,7 @@
     <div class="right">
       <h1> {{ productName }}</h1>
       <h4> {{ productDesc }}</h4>
-      <h6> {{ available }}</h6>
-      <h2> {{ productPrice }}</h2>
+      <h2> Price: {{ productPrice }}</h2>
     </div>
   </div>
 </div>
@@ -38,6 +37,10 @@ export default {
 </script>
 
 <style>
+.container {
+  display: hidden;
+}
+
 .product {
   display: flex;
   flex-direction: row;
