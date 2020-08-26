@@ -1,16 +1,23 @@
 <template>
 <div id="app">
-  <Popup />
+  <Shop />
+  <ProductCard />
+  <ShopCard />
 </div>
 </template>
 
 <script>
-import Popup from './components/Popup.vue'
+import Shop from './components/Shop.vue'
+import ProductCard from './components/ProductCard.vue'
+import ShopCard from './components/ShopCard.vue'
+
 
 export default {
   name: 'App',
   components: {
-    Popup
+    Shop,
+    ProductCard,
+    ShopCard
   }
 }
 </script>
