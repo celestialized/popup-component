@@ -1,22 +1,35 @@
 <template >
 <div class="container text-center">
-  <div class="product-img">
-    <h2>Your imgage</h2>
-    <img src="../assets/logo.png" alt="logo" @click="displayController == 2">
-  </div>
-  <div class="search">
-    <h3> Tags</h3>
-    <span v-for="(tag, id) in tags" :key="id" id="tag" class="m-1 badge-pill badge-dark" @click="remove(tag)">{{tag.name}}
-    </span>
-    <form @submit.prevent="addToTags">
-      <label for="newTag"></label>
-      <small id="newTagHelp" class="form-text text-muted">Enter a new search tag:</small>
-      <input type="text" class="form-control" id="newTag" v-model="newTerm">
-    </form>
-  </div>
-  <div class="shop-items">
-    <h2> Shop Items </h2>
-    <ShopCard />
+  <div class="grid-container">
+    <div class="img">
+      <img src="../assets/logo.png" alt="logo">
+    </div>
+    <div class="search">
+      <div class="tags">
+        <span>Tags:</span>
+        <span v-for="(tag, id) in tags" :key="id" id="tag" class="m-1 badge-pill badge-dark" @click="remove(tag)">{{tag.name}}</span>
+      </div>
+      <form @submit.prevent="addToTags">
+        <label for="newTag"></label>
+        <small id="newTagHelp" class="form-text text-muted">Enter a new search tag:</small>
+        <input type="text" class="form-control" id="newTag" v-model="newTerm">
+      </form>
+    </div>
+    <div class="products">
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+      <ShopCard />
+    </div>
   </div>
 </div>
 <!-- <div v-if="displayController == 2">
@@ -27,10 +40,11 @@
 
 
 <script>
+import ShopCard from './ShopCard.vue'
 export default {
   name: 'Shop',
   components: {
-
+    ShopCard
   },
   data() {
     return {
@@ -71,52 +85,67 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: auto;
+.grid-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  /* grid-template-rows: 1fr 5fr; */
+  grid-template-columns: 0.5fr 1.5fr;
+  /* grid-template-rows: 0.6fr 0.3fr 2.1fr; */
+  gap: 1px 1px;
   grid-template-areas:
-    "product-img search search search"
-    "product-img shop shop shop"
-    "product-img shop shop shop"
-    "product-img shop shop shop"
-    "product-img shop shop shop";
+    "img tags"
+    "img search"
+    "img products";
+  height: 90vh;
+  margin-top: 5vh;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  justify-content: space-around;
 }
 
-.product-img {
-  /* grid-area: 1 / 1 / 7 / 3; */
-  border: 2px solid red;
+.img {
+  grid-area: img;
+  margin: auto;
+  padding: 15px;
+}
+
+.tags {
+  grid-area: tags;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px;
+  cursor: crosshair;
+  overflow-y: scroll;
 }
 
 .search {
-  /* grid-area: 1 / 3 / 2 / 9; */
-  /* margin: 15px; */
-  border: 2px solid red;
+  grid-area: search;
+  padding: 15px;
+
 }
 
-.search>input {
-  margin: 15px;
+.products {
+  grid-area: products;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
-input {
-  margin: auto;
-  width: 80%;
-}
-
-.shop-items {
-  /* grid-area: 2 / 3 / 7 / 9; */
-  border: 2px solid red;
-}
-
-#tag {
-  cursor: pointer;
-}
-
-@media only screen and (max-width:550px) {
-  .container {
+@media only screen and (max-width:550px; ) {
+  .grid-container {
     display: flex;
-    flex-direction: column;
+    /* grid-template-columns: 0.5fr 1.5fr; */
+    /* grid-template-rows: 0.6fr 0.3fr 2.1fr; */
+    /* gap: 1px 1px;
+    grid-template-areas:
+      "img"
+      "tags"
+      "search"
+      "products"; */
+    height: 90vh;
+    margin-top: 5vh;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+    justify-content: space-around;
+    overflow-y: scroll;
   }
 }
 </style>
