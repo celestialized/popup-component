@@ -47,6 +47,7 @@ export default {
     ShopCard
   },
   data() {
+    // TODO: load new json in here and pass data to each shop card
     return {
       tags: [],
       newTerm: "",
@@ -59,14 +60,12 @@ export default {
         name: this.newTerm,
       });
       this.newTerm = '';
+      // TODO: do not allow emtoy strings
     },
     remove(tag) {
       const tagIndex = this.tags.indexOf(tag);
       this.tags.splice(tagIndex, 1);
     },
-    toggle() {
-      this.displayController = 2;
-    }
   },
   watch: {
     tags() {
@@ -88,7 +87,7 @@ export default {
 .grid-container {
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
-  /* grid-template-rows: 0.6fr 0.3fr 2.1fr; */
+  grid-template-rows: 0.3fr 0.3fr 2.1fr;
   gap: 1px 1px;
   grid-template-areas:
     "img tags"
@@ -112,7 +111,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 15px;
-  cursor: crosshair;
+  cursor: pointer;
   overflow-y: scroll;
 }
 
@@ -128,6 +127,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: scroll;
+  justify-content: space-around;
 }
 
 @media only screen and (max-width:550px; ) {
