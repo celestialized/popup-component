@@ -37,8 +37,13 @@ export default {
 </script>
 
 <style>
-.container {
-  display: hidden;
+.container123123 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  border: 2px solid red;
+  height: 100px;
+  width: 100px;
 }
 
 .product {
