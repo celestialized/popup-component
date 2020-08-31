@@ -2,7 +2,6 @@
 <div id="app">
   <Shop />
   <!-- <ProductCard /> -->
-  <ShopCard />
 </div>
 </template>
 
