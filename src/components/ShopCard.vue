@@ -1,6 +1,5 @@
 <template lang="html">
   <div id="root" :class="[toggle.maxed?'cardMax':'card']" v-on:click="popUp">
-  <!-- <div  :class="[toggle.maxed?'cardMax mx-auto':'card']" v-on:click="toggle.maxed = !toggle.maxed"> -->
     <p> {{ content.Title }}</p>
     <p> {{ content.ImageSrc }}</p>
     <p> {{ content.VariantPrice }}</p>
@@ -20,7 +19,6 @@ export default {
   props: {
     // TODO: process passed props -> computed
   },
-  // TODO: camel case and regex space in all keys in the new json!
   data() {
     return {
       content: {
@@ -42,6 +40,7 @@ export default {
         this.toggle.maxed = !this.toggle.maxed
         // alert("false");
         document.body.insertBefore(  document.getElementById( 'root'), document.body.firstChild  );
+        // TODO: this only gets the first element and attaches "target",  use id as arg in this function
         document.getElementById( 'root').classList.add("target");
       } else {
         this.toggle.maxed = !this.toggle.maxed
