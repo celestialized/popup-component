@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import ProductCard from './ProductCard.vue'
 
 export default {
   name: 'ShopCard',
@@ -58,31 +57,19 @@ export default {
 
 <style lang="css" scoped>
 
-/* .container123123 {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  border: 2px solid red;
-  height: 100px;
-  width: 100px;
-} */
-
 .card {
   background-color: white;
   cursor: pointer;
-  height: 200px;
-  width: 175px;
-  border: 2px solid rgba(1, 1, 1, .1);
-  border-radius: 4px;
+  height: 250px;
+  width: 200px;
+  border: 1px solid rgba(1, 1, 1, .1);
+  border-radius: 0px;
   margin: 10px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .cardMax {
-
   position: absolute;
-  /* left: 50%;
-  top: 10vh; */
   min-width: 150px;
   background-color: white;
   z-index: 2;
@@ -94,6 +81,12 @@ export default {
   border-radius: 4px;
   margin: 10px;
   box-shadow: 0px 5px 5px rgba(3, 23, 18, 0.15);
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 95vh;
+  }
 }
 
 

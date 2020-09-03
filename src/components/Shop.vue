@@ -86,17 +86,16 @@ export default {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: 0.5fr 1.5fr;
-  grid-template-rows: 0.3fr 0.3fr 2.1fr;
   gap: 1px 1px;
   grid-template-areas:
     "img tags"
     "img search"
     "img products";
-  height: 90vh;
-  margin-top: 5vh;
+  height: 95vh;
+  margin-top: 2.5vh;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
   justify-content: space-around;
+  border: 1px solid rgba(1, 1, 1, .1);
 }
 
 .img {
@@ -110,7 +109,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   overflow-y: scroll;
 }
@@ -118,8 +117,8 @@ export default {
 .search {
   grid-area: search;
   padding: 15px;
-
 }
+
 
 .products {
   grid-area: products;
@@ -127,25 +126,54 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: scroll;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
-@media only screen and (max-width:550px; ) {
+/* PHONE */
+@media only screen and (max-width: 780px) {
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   .grid-container {
     display: flex;
-    /* grid-template-columns: 0.5fr 1.5fr; */
-    /* grid-template-rows: 0.6fr 0.3fr 2.1fr; */
-    /* gap: 1px 1px;
+    flex-flow: row wrap;
+    gap: 5px 1px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+    overflow-y: scroll;
+  }
+
+  .img {
+    padding: 0px;
+    width: auto;
+  }
+
+  .search {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .products {
+    justify-content: space-evenly;
+  }
+}
+
+/* TABLET >> DESKTOP*/
+@media only screen and (min-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.3fr 0.3fr 2.1fr;
+    gap: 1px 1px;
     grid-template-areas:
-      "img"
-      "tags"
-      "search"
-      "products"; */
-    height: 90vh;
-    margin-top: 5vh;
+      "img tags"
+      "img search"
+      "products products";
+    height: 95vh;
+    margin-top: 2.5vh;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
     justify-content: space-around;
-    overflow-y: scroll;
   }
 }
 </style>
