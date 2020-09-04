@@ -7,7 +7,8 @@
     <div class="search">
       <div class="tags">
         <span>Tags:</span>
-        <span v-for="(tag, id) in tags" :key="id" id="tag" class="m-1 badge-pill badge-dark" @click="remove(tag)">{{tag.name}}</span>
+        <span v-for="(tag, id) in tags" :key="id" id="tag" class="m-1 badge-pill badge-dark" @click="remove(tag)">{{tag.name}}
+        </span>
       </div>
       <form @submit.prevent="addToTags">
         <label for="newTag"></label>
@@ -16,27 +17,14 @@
       </form>
     </div>
     <div class="products">
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
+      <!-- TODO:
+        Only fire one content a time in each ShopCard - not all in each ...
+     -->
+      <ShopCard v-for="(content, x) in contents" :key="x" :content="content" />
     </div>
   </div>
 </div>
-<!-- <div v-if="displayController == 2">
-  <h1 @click="displayController == 1"> peofihpeih </h1>
-</div> -->
 </template>
-
 
 
 <script>
@@ -51,7 +39,22 @@ export default {
     return {
       tags: [],
       newTerm: "",
-      displayController: 1
+      contents: [{
+          Title: "Acana Adult Dog"
+        },
+        {
+          Title: "Acana 2 Dog"
+        },
+        {
+          Title: "Acana 3 Dog"
+        },
+        {
+          Title: "Acana 4 Dog"
+        },
+        {
+          Title: "Acana 5 Dog"
+        }
+      ],
     }
   },
   methods: {
@@ -119,7 +122,6 @@ export default {
   padding: 15px;
 }
 
-
 .products {
   grid-area: products;
   display: flex;
@@ -149,6 +151,10 @@ export default {
     width: auto;
   }
 
+  .tags {
+    overflow-y: hidden;
+  }
+
   .search {
     padding: 15px;
     width: 100%;
@@ -156,6 +162,7 @@ export default {
 
   .products {
     justify-content: space-evenly;
+    overflow-y: hidden;
   }
 }
 

@@ -37,13 +37,13 @@ export default {
 </script>
 
 <style>
-.container123123 {
+.container {
   position: absolute;
   top: 50px;
   left: 50px;
   border: 2px solid red;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 
 .product {
@@ -56,4 +56,6 @@ export default {
   margin: 15px;
   padding: 15px;
 }
+
+@media only screen and (max-width: 600px) {}
 </style>

@@ -1,34 +1,18 @@
 <template lang="html">
   <div id="root" :class="[toggle.maxed?'cardMax':'card']" v-on:click="popUp">
-    <p> {{ content.Title }}</p>
-    <p> {{ content.ImageSrc }}</p>
-    <p> {{ content.VariantPrice }}</p>
-    <p> {{ content.Type }}</p>
-    <p> {{ content.Tags }}</p>
+    <p v-bind="content"> {{ content.Title }} </p>
   </div>
 </template>
 
-<script>
 
+<script>
 export default {
   name: 'ShopCard',
-  components: {
-    // ProductCard
-  },
-  props: {
-    // TODO: process passed props -> computed
-  },
+  // TODO: Prop validation
+  props: ["content"],
   data() {
     return {
-      content: {
-        Title: "Acana Adult Dog",
-        ImageSrc: "http://cdn.shopify.com/s/files/1/0046/8722/products/acana-adult-dog.jpeg?95",
-        VariantPrice: 5,
-        Type: "Dog food",
-        Tags: "Adult, Dog, Large Breed, Medium Breed, Grain Free",
-      //   // maxed: false
-    },
-      toggle :{
+      toggle: {
         maxed: false
       }
     }
@@ -38,25 +22,22 @@ export default {
       if (this.toggle.maxed == false) {
         this.toggle.maxed = !this.toggle.maxed
         // alert("false");
-        document.body.insertBefore(  document.getElementById( 'root'), document.body.firstChild  );
+        document.body.insertBefore(document.getElementById('root'), document.body.firstChild);
         // TODO: this only gets the first element and attaches "target",  use id as arg in this function
-        document.getElementById( 'root').classList.add("target");
+        document.getElementById('root').classList.add("target");
       } else {
         this.toggle.maxed = !this.toggle.maxed
         // alert("true");
         // document.body.removeChild( document.getElementByClassName("target"));
-        document.body.removeChild( document.body.children[0] )
-        document.body.insertBefore(document.getElementById( 'root'), document.getElementByClassName("products").firstChild);
+        document.body.removeChild(document.body.children[0])
+        document.body.insertBefore(document.getElementById('root'), document.getElementByClassName("products").firstChild);
       }
-
-
     }
   }
 }
-  </script>
+</script>
 
 <style lang="css" scoped>
-
 .card {
   background-color: white;
   cursor: pointer;
@@ -88,6 +69,4 @@ export default {
     width: 95vh;
   }
 }
-
-
 </style>
