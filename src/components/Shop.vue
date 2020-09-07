@@ -23,6 +23,18 @@
       <ShopCard v-for="(content, x) in contents" :key="x" :content="content" />
     </div>
   </div>
+  <!-- MODAL_OVERLAY -->
+  <div class="modal-overlay" v-if="showModal" @click="showModal = false">
+
+    <!-- MODAL -->
+    <div class="modal" v-if="showModal">
+      <h1>Lorem Ipsum</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem provident explicabo accusamus laudantium voluptatum nobis sed nesciunt neque possimus molestiae?</p>
+      <button class="button" @click="showModal = true">
+        Close Modal
+      </button>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -39,6 +51,7 @@ export default {
     return {
       tags: [],
       newTerm: "",
+      showModal: false,
       contents: [{
         "Handle": "clay-plant-pot",
         "Title": "Clay Plant Pot",
@@ -1074,6 +1087,31 @@ export default {
   flex-wrap: wrap;
   overflow-y: scroll;
   justify-content: space-evenly;
+}
+
+/* --------------MOADL STUFF-------------- */
+.modal-overlay {
+  grid-area: img, search, products, tags;
+  width: 90%;
+  height: 80%;
+  top: 10%;
+  margin: auto;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 3px solid red;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  z-index: 3;
+  width: 100;
+  max-width: 400px;
+  background-color: #FFF;
+  padding: 25px;
+  border: 5px solid green;
 }
 
 /* PHONE */
