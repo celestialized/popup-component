@@ -5,7 +5,7 @@
     <!-- CONTENT -->
     <!-- TODO: WORK HERE -->
     <img :src="content.ImageSrc" alt="productImg">
-    <p> {{ content.Title }} <p>
+    <h6> {{ content.Title }} </h6>
     <p > {{ content.VariantPrice }} $</p>
     <button @click="showModal = true">Show details</button>
 
@@ -49,7 +49,8 @@ export default {
 }
 
 .card > h6 {
-  margin-top: 15px;
+  margin-top: 5px;
+  line-height: 10px;
 }
 
 button {
