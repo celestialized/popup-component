@@ -25,7 +25,7 @@ export default {
   mounted() {
     this.$root.$on("showCard", (content) => {
       this.productCardContent = []
-      this.productCardContent.push(content)
+      this.productCardContent = content
       this.showCard = true
     });
     this.$root.$on("closeCard", () => {

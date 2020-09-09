@@ -3,10 +3,12 @@
   <div class="grid-container">
     <div class="product">
       <div class="left">
-        <img src="../assets/logo.png" alt="productImg">
+        <img :src="productCardContent.ImageSrc" alt="productImg">
+
       </div>
       <div class="right">
         <h1> {{productCardContent.Title}}</h1>
+        <h1 v-bind:title="productCardContent.Title"></h1>
         <h4> {{productCardContent.Vendor}}</h4>
         <h2>{{productCardContent.VariantPrice}}</h2>
       </div>
