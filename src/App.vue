@@ -7,7 +7,7 @@
   <!-- </div> -->
   <!-- <div v-else> -->
   <Shop />
-  <ProductCard :content="productCardContent" />
+  <!-- <ProductCard :content="productCardContent" /> -->
   <!-- </div> -->
 
 </div>
@@ -15,14 +15,14 @@
 
 <script>
 import Shop from './components/Shop.vue'
-import ProductCard from './components/ProductCard.vue'
+// import ProductCard from './components/ProductCard.vue'
 
 
 export default {
   name: 'App',
   components: {
     Shop,
-    ProductCard
+    // ProductCard
   },
   data() {
     return {
