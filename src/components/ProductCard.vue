@@ -1,13 +1,16 @@
 <template >
-<div class="container">
-  <div class="product">
-    <div class="left">
-      <img src="../assets/logo.png" alt="productImg">
-    </div>
-    <div class="right">
-      <h1> {{ productName }}</h1>
-      <h4> {{ productDesc }}</h4>
-      <h2> Price: {{ productPrice }}</h2>
+<div class="container text-center">
+  <div class="grid-container">
+    <div class="product">
+      <div class="left">
+        <img src="../assets/logo.png" alt="productImg">
+      </div>
+      <div class="right">
+        <h1> asd}</h1>
+        <h4> adsad</h4>
+        <h2>asdasd</h2>
+      </div>
+      <p @click="closeCard()"></p>
     </div>
   </div>
 </div>
@@ -16,6 +19,7 @@
 <script>
 export default {
   name: 'ProductCard',
+  props: "content",
   data() {
     return {
       productName: "Shoe",
@@ -25,12 +29,13 @@ export default {
       available: false
     }
   },
+
   methods: {
     addToCart() {
       console.log("added to cart!")
     },
     closeCard() {
-
+      this.$root.$emit("closeCard")
     }
   }
 }
@@ -38,23 +43,23 @@ export default {
 
 <style>
 .container {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  border: 2px solid red;
-  height: 150px;
-  width: 150px;
+  display: grid;
+  gap: 1px 1px;
+  grid-template-areas:
+    "left right";
+  height: 95vh;
+  margin-top: 2.5vh;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  justify-content: space-around;
+  border: 1px solid rgba(1, 1, 1, .1);
 }
 
-.product {
-  display: flex;
-  flex-direction: row;
+.left {
+  grid-area: left;
 }
 
-.left,
 .right {
-  margin: 15px;
-  padding: 15px;
+  grid-area: right;
 }
 
 @media only screen and (max-width: 600px) {}

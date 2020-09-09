@@ -17,22 +17,7 @@
       </form>
     </div>
     <div class="products">
-      <!-- TODO:
-        Only fire one content a time in each ShopCard - not all in each ...
-     -->
       <ShopCard v-for="(content, x) in contents" :key="x" :content="content" />
-    </div>
-  </div>
-  <!-- MODAL_OVERLAY -->
-  <div class="modal-overlay" v-if="showModal" @click="showModal = false">
-
-    <!-- MODAL -->
-    <div class="modal" v-if="showModal">
-      <h1>Lorem Ipsum</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem provident explicabo accusamus laudantium voluptatum nobis sed nesciunt neque possimus molestiae?</p>
-      <button class="button" @click="showModal = true">
-        Close Modal
-      </button>
     </div>
   </div>
 </div>
@@ -1033,7 +1018,6 @@ export default {
       localStorage.tags = JSON.stringify(this.tags);
       console.log("tags changed");
       // TODO: Here's gonna be the function watching tags to live update our search.
-      // TODO: Clear localStorage on new search.
     }
   },
   mounted() {
@@ -1072,7 +1056,6 @@ export default {
   flex-wrap: wrap;
   padding: 10px;
   cursor: pointer;
-  /* overflow-y: scroll; */
 }
 
 .search {
@@ -1101,19 +1084,6 @@ export default {
   border: 3px solid red;
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  /* transform: translate(-50%, -50%); */
-  z-index: 3;
-  width: 100;
-  max-width: 400px;
-  background-color: #FFF;
-  padding: 25px;
-  border: 5px solid green;
-}
-
 /* PHONE */
 @media only screen and (max-width: 780px) {
   .container {
@@ -1131,7 +1101,6 @@ export default {
 
   .img {
     padding: 0px;
-    width: auto;
   }
 
   .tags {
