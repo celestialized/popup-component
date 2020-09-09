@@ -1,18 +1,23 @@
 <template >
-<div class="container text-center">
-  <div class="grid-container">
-    <div class="product">
-      <div class="left">
-        <img :src="productCardContent.ImageSrc" alt="productImg">
-
-      </div>
-      <div class="right">
-        <h1> {{productCardContent.Title}}</h1>
-        <h1 v-bind:title="productCardContent.Title"></h1>
-        <h4> {{productCardContent.Vendor}}</h4>
-        <h2>{{productCardContent.VariantPrice}}</h2>
-      </div>
-      <p @click="closeCard()">CLOSE ME MTHRFKR</p>
+<div class="grid-container">
+  <div class="Img">
+    <img :src="productCardContent.ImageSrc" alt="productImg">
+  </div>
+  <div class="detailContainer">
+    <div class="PoductTitle">
+      <h1> {{productCardContent.Title}}</h1>
+    </div>
+    <div class="ProductDesc">
+      <h1 v-bind:title="productCardContent.Title"></h1>
+    </div>
+    <div class="ProductPrice">
+      <h4> {{productCardContent.Vendor}}</h4>
+    </div>
+    <div class="VendorBtn">
+      <h2>{{productCardContent.VariantPrice}} $</h2>
+    </div>
+    <div class="close">
+      <p @click="closeCard()">close</p>
     </div>
   </div>
 </div>
@@ -44,25 +49,62 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.grid-container {
+  height: 70vh;
+
+  /* change that later */
+  /* width: 80vh; */
+
+  /* margin: auto; */
+  margin-top: 15vh;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(1, 1, 1, .1);
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.6fr 0.8fr 2.3fr 0.9fr 0.8fr 0.6fr;
   gap: 1px 1px;
   grid-template-areas:
-    "left right";
-  height: 95vh;
-  margin-top: 2.5vh;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
-  justify-content: space-around;
-  border: 1px solid rgba(1, 1, 1, .1);
+    "Img Close"
+    "Img PoductTitle"
+    "Img ProductDesc"
+    "Img ProductPrice"
+    "Img VendorBtn"
+    "Img .";
 }
 
-.left {
-  grid-area: left;
+.Img {
+  grid-area: Img;
 }
 
-.right {
-  grid-area: right;
+/* this makes wierd thingys with the grid*/
+.detailContainer {
+  padding: 15px;
 }
+
+.Close {
+  grid-area: Close;
+  float: right;
+  cursor: pointer;
+}
+
+.PoductTitle {
+  grid-area: PoductTitle;
+}
+
+.ProductDesc {
+  grid-area: ProductDesc;
+}
+
+.ProductPrice {
+  grid-area: ProductPrice;
+}
+
+.VendorBtn {
+  grid-area: VendorBtn;
+}
+
+
+
 
 @media only screen and (max-width: 600px) {}
 </style>
