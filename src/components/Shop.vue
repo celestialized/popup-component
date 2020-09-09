@@ -1072,17 +1072,6 @@ export default {
   justify-content: space-evenly;
 }
 
-/* --------------MOADL STUFF-------------- */
-.modal-overlay {
-  grid-area: img, search, products, tags;
-  width: 90%;
-  height: 80%;
-  top: 10%;
-  margin: auto;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 3px solid red;
-}
 
 /* PHONE */
 @media only screen and (max-width: 780px) {

@@ -6,11 +6,11 @@
         <img src="../assets/logo.png" alt="productImg">
       </div>
       <div class="right">
-        <h1> asd}</h1>
-        <h4> adsad</h4>
-        <h2>asdasd</h2>
+        <h1> {{productCardContent.Title}}</h1>
+        <h4> {{productCardContent.Vendor}}</h4>
+        <h2>{{productCardContent.VariantPrice}}</h2>
       </div>
-      <p @click="closeCard()"></p>
+      <p @click="closeCard()">CLOSE ME MTHRFKR</p>
     </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'ProductCard',
-  props: "content",
+  props: ["productCardContent"],
   data() {
     return {
       productName: "Shoe",
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   display: grid;
   gap: 1px 1px;

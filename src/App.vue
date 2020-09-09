@@ -1,28 +1,20 @@
 <template>
 <div id="app">
-
-  <!-- <div v-if="showCard = true"> -->
-  <!-- v-if="loginType === 'username'" -->
-  <!-- <ProductCard /> -->
-  <!-- </div> -->
-  <!-- <div v-else> -->
-  <Shop />
-  <!-- <ProductCard :content="productCardContent" /> -->
-  <!-- </div> -->
-
+  <Shop v-if="showCard  === false" />
+  <ProductCard v-else :productCardContent="productCardContent" />
 </div>
 </template>
 
 <script>
 import Shop from './components/Shop.vue'
-// import ProductCard from './components/ProductCard.vue'
+import ProductCard from './components/ProductCard.vue'
 
 
 export default {
   name: 'App',
   components: {
     Shop,
-    // ProductCard
+    ProductCard
   },
   data() {
     return {
@@ -38,7 +30,7 @@ export default {
     });
     this.$root.$on("closeCard", () => {
       this.productCardContent = []
-      this.showCard = true
+      this.showCard = false
     })
   },
   methods: {},
