@@ -1,6 +1,7 @@
 <template >
 <div class="container text-center">
   <div class="grid-container">
+    <Close />
     <div class="img">
       <img src="../assets/logo.png" alt="logo">
     </div>
@@ -23,13 +24,15 @@
 </div>
 </template>
 
-
 <script>
 import ShopCard from './ShopCard.vue'
+import Close from './Close.vue'
+
 export default {
   name: 'Shop',
   components: {
-    ShopCard
+    ShopCard,
+    Close
   },
   data() {
     // TODO: load new json in here and pass data to each shop card
@@ -1011,7 +1014,7 @@ export default {
     remove(tag) {
       const tagIndex = this.tags.indexOf(tag);
       this.tags.splice(tagIndex, 1);
-    },
+    }
   },
   watch: {
     tags() {
@@ -1031,7 +1034,6 @@ export default {
 <style scoped>
 .grid-container {
   display: grid;
-  gap: 1px 1px;
   grid-template-areas:
     "img tags"
     "img search"
@@ -1054,7 +1056,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -1071,7 +1073,6 @@ export default {
   overflow-y: scroll;
   justify-content: space-evenly;
 }
-
 
 /* PHONE */
 @media only screen and (max-width: 780px) {

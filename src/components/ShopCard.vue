@@ -1,28 +1,17 @@
 <template >
-<!-- <div id="root" :class="[toggle.maxed?'cardMax':'card']" v-on:click="popUp"> -->
 <div class="card">
-
-  <!-- CONTENT -->
-  <!-- TODO: WORK HERE -->
   <img :src="content.ImageSrc" alt="productImg">
   <h6> {{ content.Title }} </h6>
   <p> {{ content.VariantPrice }} $</p>
   <button @click="sendToProductCard(content)">Show details</button>
-
 </div>
 </template>
-
 
 <script>
 export default {
   name: 'ShopCard',
   // TODO: Prop validation
   props: ["content"],
-  data() {
-    return {
-      // showModal: false
-    }
-  },
   methods: {
     sendToProductCard(content) {
       this.$root.$emit('showCard', content);
@@ -64,8 +53,6 @@ button {
   border: none;
   margin: 15px;
 }
-
-
 
 @media only screen and (max-width: 600px) {
   .card {
