@@ -1005,11 +1005,12 @@ export default {
   },
   methods: {
     addToTags() {
-      this.tags.push({
-        name: this.newTerm,
-      });
+      if (this.newTerm != "") {
+        this.tags.push({
+          name: this.newTerm,
+        });
+      }
       this.newTerm = '';
-      // TODO: do not allow emtoy strings
     },
     remove(tag) {
       const tagIndex = this.tags.indexOf(tag);
@@ -1027,7 +1028,7 @@ export default {
     if (localStorage.tags) {
       this.tags = JSON.parse(localStorage.tags);
     }
-  }
+  },
 }
 </script>
 
@@ -1095,6 +1096,10 @@ export default {
 
   .tags {
     overflow-y: hidden;
+  }
+
+  #tag {
+    background-color: black;
   }
 
   .search {

@@ -10,7 +10,6 @@
 <script>
 export default {
   name: 'ShopCard',
-  // TODO: Prop validation
   props: ["content"],
   methods: {
     sendToProductCard(content) {
@@ -57,6 +56,8 @@ button {
 @media only screen and (max-width: 600px) {
   .card {
     margin: 5px;
+    width: 300px;
+    height: 350px;
   }
 }
 </style>

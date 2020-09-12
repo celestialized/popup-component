@@ -26,6 +26,7 @@ export default {
   height: 50px;
   margin-top: 10px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .leftright {
@@ -33,8 +34,8 @@ export default {
   width: 50px;
   position: absolute;
   margin-top: 24px;
-  background-color: #35495e;
-  border-radius: 2px;
+  background-color: black;
+  border-radius: 1px;
   transform: rotate(45deg);
   transition: all .3s ease-in;
 }
@@ -44,15 +45,10 @@ export default {
   width: 50px;
   position: absolute;
   margin-top: 24px;
-  background-color: #35495e;
-  border-radius: 2px;
+  background-color: black;
+  border-radius: 1px;
   transform: rotate(-45deg);
   transition: all .3s ease-in;
-}
-
-.close {
-  margin: 60px 0 0 5px;
-  position: absolute;
 }
 
 .close-container:hover .leftright {
