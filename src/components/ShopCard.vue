@@ -2,7 +2,7 @@
 <div class="card">
   <img :src="content.ImageSrc" alt="productImg">
   <h6> {{ content.Title }} </h6>
-  <p> {{ content.VariantPrice }} $</p>
+  <p> {{ content.VariantPrice }}<span>&#36;</span> </p>
   <button @click="sendToProductCard(content)">Show details</button>
 </div>
 </template>
@@ -53,6 +53,9 @@ button {
   margin: 15px;
 }
 
+span {
+  font-family: 'Playfair Display', serif;
+}
 @media only screen and (max-width: 600px) {
   .card {
     margin: 5px;

@@ -18,7 +18,7 @@
   </div>
   <div class="vendor-details">
     <div class="vendor-price">
-      <h2>{{productCardContent.VariantPrice}} $</h2>
+      <h2>{{productCardContent.VariantPrice}}<span>&#36;</span> </h2>
     </div>
     <div class="product-vendor">
       <blockquote>{{productCardContent.Vendor}}</blockquote>
@@ -132,6 +132,10 @@ export default {
   font-weight: 500;
   border: none;
   margin: 15px;
+}
+
+span {
+  font-family: 'Playfair Display', serif;
 }
 
 @media only screen and (max-width: 780px) {
