@@ -18,7 +18,7 @@
   </div>
   <div class="vendor-details">
     <div class="vendor-price">
-      <h2>{{productCardContent.VariantPrice}}<span>&#36;</span> </h2>
+      <h2><span>&#36;</span>{{productCardContent.VariantPrice}}</h2>
     </div>
     <div class="product-vendor">
       <blockquote>{{productCardContent.Vendor}}</blockquote>

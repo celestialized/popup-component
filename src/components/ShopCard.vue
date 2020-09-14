@@ -2,7 +2,8 @@
 <div class="card">
   <img :src="content.ImageSrc" alt="productImg">
   <h6> {{ content.Title }} </h6>
-  <p> {{ content.VariantPrice }}<span>&#36;</span> </p>
+  <p> <span>&#36;</span{{ content.VariantPrice }}>
+  </p>
   <button @click="sendToProductCard(content)">Show details</button>
 </div>
 </template>
